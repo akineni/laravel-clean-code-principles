@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KISS\GreetingController;
 use App\Http\Controllers\Solid\ISPMediaController;
 use App\Http\Controllers\Solid\OCPNotificationController;
 use Illuminate\Support\Facades\Route;
@@ -24,3 +25,5 @@ Route::prefix('solid')->group(function () {
         Route::get('/smart', [ISPMediaController::class, 'smart']);
     });
 });
+
+Route::get('/kiss/greet', [GreetingController::class, 'greet']);
