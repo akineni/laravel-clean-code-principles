@@ -11,7 +11,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        // Register the FileStorageInterface with the LocalFileStorage implementation
+        $this->app->bind(
+            \App\Contracts\FileStorageInterface::class,
+            \App\Services\FileStorage\LocalFileStorage::class
+        );
+
+        // You can also bind to S3FileStorage if needed
+        // $this->app->bind(
+        //     \App\Contracts\FileStorageInterface::class,
+        //     \App\Services\FileStorage\S3FileStorage::class
+        // );
     }
 
     /**
