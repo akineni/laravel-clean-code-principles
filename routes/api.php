@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\KISS\GreetingController;
+use App\Http\Controllers\Solid\AnimalController;
 use App\Http\Controllers\Solid\DIPFileController;
 use App\Http\Controllers\Solid\ISPMediaController;
+use App\Http\Controllers\Solid\LSPAnimalController;
 use App\Http\Controllers\Solid\OCPNotificationController;
 use App\Http\Controllers\Solid\OCPPurchaseController;
 use App\Http\Controllers\Solid\OCPReportController;
@@ -15,6 +17,9 @@ Route::prefix('solid')->group(function () {
     Route::get('/ocp-purchase', [OCPPurchaseController::class, 'purchase']);
     Route::get('/ocp-notify', [OCPNotificationController::class, 'send']);
     Route::get('/ocp-report', [OCPReportController::class, 'export']);
+
+    Route::get('/lsp/sounds', [AnimalController::class, 'testAnimalSound']);
+    Route::get('/lsp/lsp-sounds', [LSPAnimalController::class, 'testAnimalSound']);
 
     Route::prefix('isp')->group(function () {
         Route::get('/audio', [ISPMediaController::class, 'audio']);
